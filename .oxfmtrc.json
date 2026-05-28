@@ -3,7 +3,22 @@
   "printWidth": 100,
   "semi": true,
   "singleQuote": false,
-  "sortImports": true,
+  "sortImports": {
+    "groups": [
+      "value-builtin",
+      "value-external",
+      "value-internal",
+      ["value-parent", "value-sibling", "value-index"],
+      "side_effect_style",
+      "side_effect",
+      "type",
+      "unknown"
+    ],
+    "internalPattern": ["@/"],
+    "ignoreCase": true,
+    "newlinesBetween": true,
+    "order": "asc"
+  },
   "sortTailwindcss": {
     "stylesheet": "./global.css"
   },
