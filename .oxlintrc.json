@@ -1,0 +1,31 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2026": true
+  },
+  "plugins": ["react", "typescript", "import", "oxc"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "settings": {
+    "react": {
+      "version": "19.2.3"
+    }
+  },
+  "rules": {
+    "import/no-unassigned-import": "off",
+    "react/react-in-jsx-scope": "off"
+  },
+  "ignorePatterns": [
+    ".expo/**",
+    "dist/**",
+    "web-build/**",
+    "node_modules/**",
+    "ios/**",
+    "android/**"
+  ]
+}
