@@ -16,6 +16,16 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Icon } from "@/components/ui/icon";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -187,6 +197,71 @@ export default function Index() {
                 <Text>EX</Text>
               </AvatarFallback>
             </Avatar>
+          </View>
+        </Section>
+
+        <Section title="Dialog">
+          <View className="flex-row flex-wrap gap-3">
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="outline">
+                  <Text>Show dialog</Text>
+                </Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Are you absolutely sure?</DialogTitle>
+                  <DialogDescription>
+                    This action cannot be undone. This will permanently delete your account and
+                    remove your data from our servers.
+                  </DialogDescription>
+                </DialogHeader>
+                <DialogFooter>
+                  <DialogClose asChild>
+                    <Button variant="outline">
+                      <Text>Cancel</Text>
+                    </Button>
+                  </DialogClose>
+                  <DialogClose asChild>
+                    <Button variant="destructive">
+                      <Text>Delete</Text>
+                    </Button>
+                  </DialogClose>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button>
+                  <Text>Edit profile</Text>
+                </Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Edit profile</DialogTitle>
+                  <DialogDescription>
+                    Make changes to your profile here. Tap save when you&apos;re done.
+                  </DialogDescription>
+                </DialogHeader>
+                <View className="gap-1.5">
+                  <Label nativeID="dialog-name">Name</Label>
+                  <Input
+                    placeholder="Pedro Duarte"
+                    value={name}
+                    onChangeText={setName}
+                    aria-labelledby="dialog-name"
+                  />
+                </View>
+                <DialogFooter>
+                  <DialogClose asChild>
+                    <Button>
+                      <Text>Save changes</Text>
+                    </Button>
+                  </DialogClose>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
           </View>
         </Section>
 
