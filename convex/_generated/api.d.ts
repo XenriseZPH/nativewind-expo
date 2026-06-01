@@ -8,13 +8,19 @@
  * @module
  */
 
+import type * as todos_mutations from "../todos/mutations.js";
+import type * as todos_queries from "../todos/queries.js";
+
 import type {
   ApiFromModules,
   FilterApi,
   FunctionReference,
 } from "convex/server";
 
-declare const fullApi: ApiFromModules<{}>;
+declare const fullApi: ApiFromModules<{
+  "todos/mutations": typeof todos_mutations;
+  "todos/queries": typeof todos_queries;
+}>;
 
 /**
  * A utility for referencing Convex functions in your app's public API.

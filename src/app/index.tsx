@@ -1,5 +1,5 @@
-import { Stack } from "expo-router";
-import { Heart, Info, Mail, Rocket, Star } from "lucide-react-native";
+import { router, Stack } from "expo-router";
+import { Heart, Info, ListTodo, Mail, Rocket, Star } from "lucide-react-native";
 import * as React from "react";
 import { ScrollView, View } from "react-native";
 
@@ -61,6 +61,11 @@ export default function Index() {
           <Text variant="h2">Welcome to NativeWind</Text>
           <Text variant="muted">A shadcn/ui-flavored design system for Expo.</Text>
         </View>
+
+        <Button onPress={() => router.push("/todos")} size="lg" className="w-full">
+          <Icon as={ListTodo} className="size-4" color="white" />
+          <Text>Go to Todos</Text>
+        </Button>
 
         <Section title="Typography">
           <Text variant="h3">Heading</Text>
