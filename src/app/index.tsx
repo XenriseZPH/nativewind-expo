@@ -1,5 +1,6 @@
+import { useAuthActions } from "@convex-dev/auth/react";
 import { router, Stack } from "expo-router";
-import { Heart, Info, ListTodo, Mail, Rocket, Star } from "lucide-react-native";
+import { Heart, Info, ListTodo, LogOut, Mail, Rocket, Star } from "lucide-react-native";
 import * as React from "react";
 import { ScrollView, View } from "react-native";
 
@@ -49,6 +50,8 @@ export default function Index() {
   const [name, setName] = React.useState("");
   const [progress, setProgress] = React.useState(40);
 
+  const { signOut } = useAuthActions();
+
   return (
     <>
       <Stack.Screen options={{ title: "Components" }} />
@@ -57,9 +60,14 @@ export default function Index() {
         contentContainerClassName="gap-8 p-6 pb-16"
         keyboardShouldPersistTaps="handled"
       >
-        <View className="gap-2">
-          <Text variant="h2">Welcome to NativeWind</Text>
-          <Text variant="muted">A shadcn/ui-flavored design system for Expo.</Text>
+        <View className="flex-row items-center justify-between">
+          <View className="flex-1 gap-2">
+            <Text variant="h2">Welcome to NativeWind</Text>
+            <Text variant="muted">A shadcn/ui-flavored design system for Expo.</Text>
+          </View>
+          <Button variant="ghost" size="icon" onPress={() => signOut()}>
+            <Icon as={LogOut} className="size-5 text-muted-foreground" />
+          </Button>
         </View>
 
         <Button onPress={() => router.push("/todos")} size="lg" className="w-full">
