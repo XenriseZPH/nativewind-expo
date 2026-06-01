@@ -79,10 +79,5 @@
     "postcss": "^8.5.15",
     "tailwindcss": "^4.3.0",
     "typescript": "~6.0.3"
-  },
-  "pnpm": {
-    "overrides": {
-      "lightningcss": "1.30.1"
-    }
   }
 }
